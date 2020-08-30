@@ -1,10 +1,10 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-
-import Colors from '../constants/Colors';
+import { Colors } from '../constants/Colors';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
+import { translate } from '../constants/Locale';
 
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
@@ -14,7 +14,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
+          { translate("MESSAGE_01") }
         </Text>
 
         <View
@@ -28,15 +28,20 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will automatically update.
+          { translate("MESSAGE_02") }
         </Text>
       </View>
 
       <View style={styles.helpContainer}>
         <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
+          <Text style={styles.helpLinkText} lightColor={Colors.app.light.tint}>
+            { translate("MESSAGE_03_1") }
           </Text>
+          <Text style={styles.heart}>&#9829;</Text>
+          <Text style={styles.helpLinkText} lightColor={Colors.app.light.tint}>
+            { translate("MESSAGE_03_2") }
+          </Text>
+          
         </TouchableOpacity>
       </View>
     </View>
@@ -45,7 +50,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
 
 function handleHelpPress() {
   WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet'
+    'https://github.com/p4pupro'
   );
 }
 
@@ -103,6 +108,11 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   helpLinkText: {
+    color: "#6B52AF",
     textAlign: 'center',
   },
+  heart: {
+    alignSelf: "center",
+    color: "red"
+  }
 });

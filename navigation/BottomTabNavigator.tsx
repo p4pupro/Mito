@@ -1,13 +1,14 @@
+import * as React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
-
-import Colors from '../constants/Colors';
+import { Colors } from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import Page01 from '../screens/Page01';
+import Page02 from '../screens/Page02';
+import Notifications from '../screens/Notifications';
+import Settings from '../screens/Settings';
+import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList, TabFourParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -16,22 +17,37 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      initialRouteName="Page01"
+      tabBarOptions={{ activeTintColor: Colors.app[colorScheme].tint }}>
       <BottomTab.Screen
-        name="TabOne"
+        name="Page01"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-list" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="Page02"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-map" color={color} />,
         }}
       />
+      <BottomTab.Screen
+        name="Notifications"
+        component={TabThreeNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-notifications" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Settings"
+        component={TabFourNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-settings" color={color} />,
+        }}
+      />
+
     </BottomTab.Navigator>
   );
 }
@@ -51,8 +67,8 @@ function TabOneNavigator() {
     <TabOneStack.Navigator>
       <TabOneStack.Screen
         name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+        component={Page01}
+        options={{ headerTitle: 'Page01' }}
       />
     </TabOneStack.Navigator>
   );
@@ -65,9 +81,38 @@ function TabTwoNavigator() {
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
         name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        component={Page02}
+        options={{ headerTitle: 'Page02' }}
       />
     </TabTwoStack.Navigator>
   );
 }
+
+const TabThreeStack = createStackNavigator<TabThreeParamList>();
+
+function TabThreeNavigator() {
+  return (
+    <TabThreeStack.Navigator>
+      <TabThreeStack.Screen
+        name="TabThreeScreen"
+        component={Notifications}
+        options={{ headerTitle: 'Notifications' }}
+      />
+    </TabThreeStack.Navigator>
+  );
+}
+
+const TabFourStack = createStackNavigator<TabFourParamList>();
+
+function TabFourNavigator() {
+  return (
+    <TabFourStack.Navigator>
+      <TabFourStack.Screen
+        name="TabFourScreen"
+        component={Settings}
+        options={{ headerTitle: 'Settings' }}
+      />
+    </TabFourStack.Navigator>
+  );
+}
+

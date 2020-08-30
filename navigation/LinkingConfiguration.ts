@@ -6,14 +6,34 @@ export default {
     screens: {
       Root: {
         screens: {
-          TabOne: {
+          Intro: {
             screens: {
-              TabOneScreen: 'one',
+              Intro: 'Intro'
+            }
+          },
+          Auth: {
+            screens: {
+              Auth: 'Auth'
+            }
+          },
+          Page01: {
+            screens: {
+              Page01: 'Page01',
             },
           },
-          TabTwo: {
+          Page02: {
             screens: {
-              TabTwoScreen: 'two',
+              Page02: 'Page02',
+            },
+          },
+          Notifications: {
+            screens: {
+              Notifications: 'Notifications',
+            },
+          },
+          Settings: {
+            screens: {
+              Settings: 'Settings',
             },
           },
         },

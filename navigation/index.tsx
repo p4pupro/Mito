@@ -2,11 +2,14 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
-
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../types';
 import BottomTabNavigator from './BottomTabNavigator';
+import IntroNavigator from './IntroNavigatior';
+import AuthNavigator from './AuthNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
+import { useRecoilState } from 'recoil';
+import { authInfo } from '../api/authInfo';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
@@ -25,10 +28,25 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
 const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
+
+  const [logged, setLogged] = useRecoilState(authInfo);
+
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+     { 
+      logged.username !== '' ? (
+        <>
+          <Stack.Screen name="Root"  component={BottomTabNavigator} />
+        </>
+      ) : (
+        <>
+          <Stack.Screen name="Intro" component={IntroNavigator} />
+          <Stack.Screen name="Auth"  component={AuthNavigator} />
+          <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+        </>
+      )
+    } 
+      
     </Stack.Navigator>
   );
 }
