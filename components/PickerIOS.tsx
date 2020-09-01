@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     alignContent:"center",
     alignSelf: "center",
-    marginBottom: "25%"
+    //marginBottom: "25%"
   },
   textBtn: {
     fontSize: Layout.isLargeDevice ? FontSize().titles.largeFontSize : Layout.isSmallDevice ? FontSize().text.smallFontSize : FontSize().titles.mediumFontSize,

@@ -6,35 +6,35 @@ import i0 from '../../assets/images/intro/presentation01.png';
 import i1 from '../../assets/images/intro/presentation02.png';
 import i2 from '../../assets/images/intro/presentation03.png';
 import Layout from '../../constants/Layout';
-import { translate } from '../../constants/Locale';
 import { Colors } from '../../constants/Colors';
 import useColorScheme from '../../hooks/useColorScheme';
+import { useTranslation } from 'react-i18next';
 
-const images = {
+
+
+const Page = ({ route, navigation }: any) => {
+  const { t } = useTranslation();
+  const colorScheme = useColorScheme();
+
+  const images = {
     Page0: { img: i0 },
     Page1: { img: i1 },
     Page2: { img: i2 }
-};
+  };
   
-const texts = {
-  Page0: {
-    text: translate("PAGE0_TEXT")
-  },
-  Page1: {
-    text: translate("PAGE1_TEXT"),
-    subText: translate("PAGE1_SUB_TEXT")
-  },
-  Page2: {
-    text: translate("PAGE2_TEXT")
-  }
-};
+  const texts = {
+    Page0: {
+      text: t("PAGE0_TEXT")
+    },
+    Page1: {
+      text: t("PAGE1_TEXT"),
+      subText: t("PAGE1_SUB_TEXT")
+    },
+    Page2: {
+      text: t("PAGE2_TEXT")
+    }
+  };
 
-
-
-const Page = ({ route, navigation }) => {
-
-  const colorScheme = useColorScheme();
-   
   const _toLogIn = () => {
     navigation.navigate('Auth', {
       screen: 'Auth',
@@ -54,7 +54,7 @@ const Page = ({ route, navigation }) => {
           <Text style={[styles.subText, {color: Colors.app[colorScheme].text}]}> {texts[route.name].subText} </Text>
         )} 
         <TouchableOpacity style={styles.skip} onPress={() => _toLogIn(navigation)}>
-        <Text style={[styles.textSkip, {color: Colors.app[colorScheme].textSkip}]}>{ translate("AVOIDINTRO") }</Text>
+        <Text style={[styles.textSkip, {color: Colors.app[colorScheme].textSkip}]}>{ t("AVOIDINTRO") }</Text>
         </TouchableOpacity>
     </View>
   ) : (
@@ -72,7 +72,7 @@ const Page = ({ route, navigation }) => {
                 end={{ y: 0.0, x: 1.0 }}
             >
                 <Text style={[styles.textGoLogin, {color: Colors.app.dark.text}]}>
-                  { translate("GOAUTH") }
+                  { t("GOAUTH") }
                 </Text>
             </LinearGradient>
         </TouchableOpacity>

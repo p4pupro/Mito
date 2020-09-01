@@ -5,6 +5,7 @@ import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import { AppearanceProvider } from 'react-native-appearance';
 import { RecoilRoot } from 'recoil';
+import  './constants/Locale';
 
 
 export default function App() {

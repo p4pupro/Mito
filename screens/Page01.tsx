@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, TouchableOpacity } from 'react-native';
 import { Picker } from '@react-native-community/picker';
-import { View, Text, ActivityIndicator } from '../components/Themed';
-import { translate } from '../constants/Locale';
+import { View, Text, ActivityIndicator, FontAwesome5 } from '../components/Themed';
 import { useState } from 'react';
 import { PickerIOS } from '../components/PickerIOS';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -11,6 +10,8 @@ import useColorScheme from '../hooks/useColorScheme';
 import { useRecoilState } from 'recoil';
 import { data, dataPicker } from '../api/pageOne';
 import Tooltips  from '../components/Tooltips';
+import Layout from '../constants/Layout';
+import { useTranslation } from 'react-i18next';
 
 
 const Page01 = () =>  {
@@ -18,6 +19,12 @@ const Page01 = () =>  {
   const [ isLoading, setIsLoading ] = useState(false);
   const colorScheme = useColorScheme();
   const [ picker, setPicker ] = useRecoilState(dataPicker);
+  const { t, i18n } = useTranslation();
+
+
+  const changeLang = (lang: string) => {
+      i18n.changeLanguage(lang); 
+  }
 
   return (
 
@@ -31,9 +38,19 @@ const Page01 = () =>  {
       </View>
     :
       <View style={styles.container}>
+        <Text style={[styles.mitoName, { color: Colors.app[colorScheme].iconColor}]}>
+          { t("MITO_NAME") }
+        </Text>
         <Text style={styles.mito}>
-                { translate("MITO") }
-            </Text>
+          { t("MITO") }
+        </Text>
+        <Text style={styles.mitoDescription}>
+          { t("MITO_DESCRIPTION") }
+        </Text>
+        <FontAwesome5
+          name={'hand-point-down'}
+          size={Layout.isLargeDevice ? 55 : 35}
+        />
         <View style={styles.rowPicker}>
           <View style={styles.leftHeaderColunm}>
           
@@ -76,22 +93,51 @@ const Page01 = () =>  {
 
               <Tooltips
                  style={styles.tooltips}
-                 headerTitleMessage={ translate("TITLE_TOOLTIPS") }
-                 message={ translate("MESSAGE_TOOLTIPS") }
+                 headerTitleMessage={ t("TITLE_TOOLTIPS") }
+                 message={ t("MESSAGE_TOOLTIPS") }
               />
               <Text style={styles.I18N}>
-                { translate("I18N_LOCALIZATION") }
+                { t("I18N_LOCALIZATION") }
               </Text>
+              <View style={styles.rowFlags}>
+              <TouchableOpacity
+                style={{ marginLeft: 5, marginRight: 5}}
+                onPress={ () => changeLang('en') }
+              >
+                <FontAwesome5
+                  name={'flag-usa'}
+                  size={Layout.isLargeDevice ? 35 : 25}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{ marginLeft: 5, marginRight: 5}}
+                onPress={ () => changeLang('es') }
+              >
+                <FontAwesome5
+                  name={'font-awesome-flag'}
+                  size={Layout.isLargeDevice ? 35 : 25}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{ marginLeft: 5, marginRight: 5}}
+                onPress={ () => changeLang('fr') }
+              >
+                <FontAwesome5
+                  name={'flag'}
+                  size={Layout.isLargeDevice ? 35 : 25}
+                />
+              </TouchableOpacity>
+              </View>
           </View>
           <View style={styles.rightHeaderColunm}>
             <Text style={styles.textPicker}>
-              { translate("PICKER_MESSAGE") }
+              { t("PICKER_MESSAGE") }
             </Text>
             <Text style={styles.textTooltip}>
-              { translate("TOOLTIP_MESSAGE") }
+              { t("TOOLTIP_MESSAGE") }
             </Text>
             <Text style={styles.textI18n}>
-              { translate("I18N_MESSAGE") }
+              { t("I18N_MESSAGE") }
             </Text>
           </View>
         </View>
@@ -110,11 +156,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
   },
-  pickerContainer: {
-    borderRadius: 20,
-    height: 50, 
-    width: 140,
-  },
   picker: {
     color: 'black', 
     backgroundColor: 'white',
@@ -123,15 +164,15 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     width: "50%",
     height: "100%",
-    justifyContent: "center",
+    paddingTop: "5%",
     alignItems: "center",
   },
   rightHeaderColunm: {
     flexDirection: "column",
     width: "50%",
     height: "100%",
+    paddingTop: "10%",
     alignItems: "center",
-    justifyContent: "center"
   }, 
   rowPicker: {
     flexDirection: "row",
@@ -158,9 +199,25 @@ const styles = StyleSheet.create({
     marginBottom: "5%"
   },
   mito: {
-    marginTop: "25%",
+    marginTop: "5%",
     textAlign: "center",
     fontSize: 18,
+  },
+  mitoName: {
+    marginTop: "60%",
+    textAlign: "center",
+    fontSize: 25,
+  },
+  mitoDescription: {
+    width: "85%",
+    marginTop: "5%",
+    marginBottom: "5%",
+    textAlign: "center",
+    fontSize: 14,
+    fontStyle: "italic"
+  },
+  rowFlags: {
+    flexDirection: "row"
   }
 });
 

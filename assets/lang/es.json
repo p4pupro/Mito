@@ -27,6 +27,8 @@
     "TOOLTIP_MESSAGE": "Puedes usar los tooltips personalizados",
     "I18N_LOCALIZATION": "i18n con Localization",
     "I18N_MESSAGE": "Combinando i18n y expo Localization para tener multi lenaguaje",
-    "MITO": "",
+    "MITO": "Es más que una plantilla para realizar tus proyectos con mayor celeridad, Mito, te ahorra mucho tiempo de organización, importación, facilitandote el que te puedas centrar en tu idea",
+    "MITO_NAME": "Mito",
+    "MITO_DESCRIPTION": "Debajo puedes comprobar algunos de los elementos útiles que suelen ser usados con frecuencia y que por supuesto Mito te ofrece por defecto, ademas recuerda que puedes configurarlo todo para que se ajuste a tus necesidades.",
     "HELLO": "Hola"
 }

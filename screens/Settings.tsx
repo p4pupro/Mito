@@ -5,7 +5,7 @@ import Layout from '../constants/Layout';
 import FontSize from '../constants/FontSize';
 import { View, Text, TextInput, FontAwesome5, ActivityIndicator } from '../components/Themed';
 import { LinearGradient } from "expo-linear-gradient";
-import { translate } from '../constants/Locale';
+import { useTranslation } from 'react-i18next';
 import useColorScheme from '../hooks/useColorScheme';
 import { useRecoilState } from 'recoil';
 import { authInfo } from '../api/authInfo';
@@ -14,7 +14,8 @@ const DEVICE_WIDTH = Dimensions.get("window").width;
 const DEVICE_HEIGHT = Dimensions.get("window").height;
 
 export const Settings = () => {
-  
+
+    const { t, i18n } = useTranslation();
     const [logged, setLogged] = useRecoilState(authInfo);
     const [isLoading, setIsLoading] = useState(false);
     const colorScheme = useColorScheme();
@@ -37,6 +38,10 @@ export const Settings = () => {
       setIsLoading(true);
       setLogged({username: ''});
     };
+
+    const changeLang = (lang: string) => {
+      i18n.changeLanguage(lang); 
+    }
     
 
   return (
@@ -53,7 +58,7 @@ export const Settings = () => {
           
               <View style={styles.container}>
                   <View style={styles.inputContainer}>
-                    <Text style={styles.header}>{translate("USERNAME")}</Text>
+                    <Text style={styles.header}>{t("USERNAME")}</Text>
                       <TextInput
                         value={ username }
                         editable={false}
@@ -66,7 +71,7 @@ export const Settings = () => {
                       />
                   </View>
                   <View style={styles.inputContainer}>
-                    <Text style={styles.header}>{translate("EMAIL")}</Text>
+                    <Text style={styles.header}>{t("EMAIL")}</Text>
                       <TextInput
                           editable={false}
                           value={ email }
@@ -79,7 +84,7 @@ export const Settings = () => {
                       />
                   </View>
                   <View style={styles.inputContainer}>
-                    <Text style={styles.header}>{translate("PHONE")}</Text>
+                    <Text style={styles.header}>{t("PHONE")}</Text>
                       <TextInput
                           editable={false}
                           value={ phone }
@@ -92,7 +97,7 @@ export const Settings = () => {
                       />
                   </View>
                   <View style={styles.inputContainer}>
-                    <Text style={styles.header}>{translate("ADDRESS")}</Text>
+                    <Text style={styles.header}>{t("ADDRESS")}</Text>
                       <TextInput
                           editable={false}
                           value={ address }
@@ -105,7 +110,7 @@ export const Settings = () => {
                       />
                   </View>
                   <View style={styles.inputContainer}>
-                    <Text style={styles.header}>{translate("DATE")}</Text>
+                    <Text style={styles.header}>{t("DATE")}</Text>
                       <TextInput
                           editable={false}
                           value={ date }
@@ -125,7 +130,7 @@ export const Settings = () => {
                       <Text
                           style={styles.textForgotPcw}
                       >
-                              { translate("CHANGEPWC") }
+                              { t("CHANGEPWC") }
                       </Text>    
                       </TouchableOpacity>
                   </View>
@@ -143,7 +148,7 @@ export const Settings = () => {
                               <Text
                                   style={styles.textBtn}
                               >
-                                  { translate("LOGOUT") }
+                                  { t("LOGOUT") }
                               </Text>
                           </TouchableOpacity>
                       </LinearGradient>

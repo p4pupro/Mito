@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { translate } from '../constants/Locale';
 import { View, Text, TextInput, FontAwesome5, ActivityIndicator } from '../components/Themed';
 import { TouchableOpacity } from 'react-native';
 import { LinearGradient } from "expo-linear-gradient";
@@ -10,11 +9,13 @@ import Logo from '../components/Logo';
 import useColorScheme from '../hooks/useColorScheme';
 import { useRecoilState } from 'recoil';
 import { authInfo } from '../api/authInfo';
+import { useTranslation } from 'react-i18next';
 
 
 
 export const Auth = () => {
 
+    const { t } = useTranslation();
     const [logged, setLogged] = useRecoilState(authInfo);
     const [isLoading, setIsLoading] = useState(false);
     const colorScheme = useColorScheme();
@@ -87,7 +88,7 @@ export const Auth = () => {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.inner}>
                 <Logo/>
-                <Text style={styles.header}>{translate("WELCOME")}</Text>
+                <Text style={styles.header}>{t("WELCOME")}</Text>
                 <View style={styles.inputContainer}>
                     <FontAwesome5
                         name={Platform.OS === 'ios' ? 'user' : 'user'}
@@ -100,7 +101,7 @@ export const Auth = () => {
                         onChangeText={ handleUsernameChange }
                         autoCapitalize='none'
                         keyboardType='email-address'
-                        placeholder={translate("USERNAME")}
+                        placeholder={t("USERNAME")}
                         style={[styles.textInput, {color: Colors.app[colorScheme].text}]} 
                     />
                 </View>
@@ -116,7 +117,7 @@ export const Auth = () => {
                         autoCorrect={false}
                         value={ password }
                         onChangeText={ handlePasswordChange }
-                        placeholder={translate("PASSWORD")} 
+                        placeholder={t("PASSWORD")} 
                         style={[styles.textInput, {color: Colors.app[colorScheme].text}]} 
                         
                     />
@@ -140,7 +141,7 @@ export const Auth = () => {
                     <Text
                         style={styles.textForgotPcw}
                     >
-                        { translate("FORGETPWC") }
+                        { t("FORGETPWC") }
                     </Text>    
                     </TouchableOpacity>
                 </View>
@@ -165,7 +166,7 @@ export const Auth = () => {
                             <Text
                                 style={styles.textBtn}
                             >
-                                { translate("SIGNIN") }
+                                { t("SIGNIN") }
                             </Text>
                         </TouchableOpacity>
                     </LinearGradient>    

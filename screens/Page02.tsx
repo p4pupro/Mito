@@ -2,8 +2,9 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
+import { useTranslation } from 'react-i18next';
 
-export default function Page02() {
+export const Page02 = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Page02</Text>

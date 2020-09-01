@@ -27,6 +27,8 @@
     "TOOLTIP_MESSAGE": "Utilisez facilement les tooltips personnalisées",
     "I18N_LOCALIZATION": "i18n con Localization",
     "I18N_MESSAGE": "Combinez i18n et expo Localization pour avoir plusieurs langues",
-    "MITO": "",
+    "MITO": "Un outil puissant pour démarrer votre application, avec toute la configuration dont vous aurez besoin pour chaque application.",
+    "MITO_NAME": "Mito",
+    "MITO_DESCRIPTION": "Vous pouvez vérifier ci-dessous certains des éléments utiles qui sont souvent utilisés et que Mito vous propose par défaut, n'oubliez pas non plus que vous pouvez tout configurer en fonction de vos besoins.",
     "HELLO": "Bonjour"
 }

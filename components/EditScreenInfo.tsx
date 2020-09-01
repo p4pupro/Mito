@@ -4,9 +4,10 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Colors } from '../constants/Colors';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
-import { translate } from '../constants/Locale';
+import { useTranslation } from 'react-i18next';
 
 export default function EditScreenInfo({ path }: { path: string }) {
+  const { t, i18n } = useTranslation();
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -14,7 +15,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          { translate("MESSAGE_01") }
+          { t("MESSAGE_01") }
         </Text>
 
         <View
@@ -28,18 +29,18 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          { translate("MESSAGE_02") }
+          { t("MESSAGE_02") }
         </Text>
       </View>
 
       <View style={styles.helpContainer}>
         <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
           <Text style={styles.helpLinkText} lightColor={Colors.app.light.tint}>
-            { translate("MESSAGE_03_1") }
+            { t("MESSAGE_03_1") }
           </Text>
           <Text style={styles.heart}>&#9829;</Text>
           <Text style={styles.helpLinkText} lightColor={Colors.app.light.tint}>
-            { translate("MESSAGE_03_2") }
+            { t("MESSAGE_03_2") }
           </Text>
           
         </TouchableOpacity>

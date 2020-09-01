@@ -28,6 +28,8 @@
     "I18N_LOCALIZATION": "i18n with Localization",
     "I18N_MESSAGE": "Combine i18n and expo Localization to have multi languages",
     "MITO": "Powerfull boilerplate to start your app, with all config that you will need for every single app.",
+    "MITO_NAME": "Mito",
+    "MITO_DESCRIPTION": "Below you can check some of the useful elements that are often used and that of course Mito offers you by default, also remember that you can configure everything to suit your needs.",
     "HELLO": "Hello"
 
 }
