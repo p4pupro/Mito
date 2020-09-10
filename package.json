@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^10.2.0",
+    "@react-native-community/datetimepicker": "^3.0.2",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-community/picker": "1.6.0",
     "@react-navigation/bottom-tabs": "^5.6.1",
@@ -25,6 +26,7 @@
     "expo-constants": "~9.1.1",
     "expo-font": "~8.2.1",
     "expo-linking": "^1.0.1",
+    "expo-local-authentication": "~9.1.1",
     "expo-localization": "~8.2.1",
     "expo-splash-screen": "~0.3.1",
     "expo-status-bar": "^1.0.2",

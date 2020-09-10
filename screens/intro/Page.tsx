@@ -101,14 +101,14 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
       },
       text: {
-        fontSize: Layout.isLargeDevice ? 20 : 14,
+        fontSize: Layout.isLargeDevice ? 20 : 16,
         textAlign: 'center',
         textAlignVertical: "center",
         alignSelf: 'center',
         padding: 5,
       },
       subText: {
-        fontSize: Layout.isLargeDevice ? 25 : 11,
+        fontSize: Layout.isLargeDevice ? 25 : 12,
         textAlign: 'center',
         alignSelf: 'center',
       },

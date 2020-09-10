@@ -30,5 +30,8 @@
     "MITO": "Un outil puissant pour démarrer votre application, avec toute la configuration dont vous aurez besoin pour chaque application.",
     "MITO_NAME": "Mito",
     "MITO_DESCRIPTION": "Vous pouvez vérifier ci-dessous certains des éléments utiles qui sont souvent utilisés et que Mito vous propose par défaut, n'oubliez pas non plus que vous pouvez tout configurer en fonction de vos besoins.",
+    "SHOW_DATE": "Montrez le sélecteur de date!",
+    "SHOW_TIME": "Afficher le choix de l'heure!",
+    "DATETIME_MESSAGE": "Gérer le sélecteur de date et d'heure de la manière la plus simple...",
     "HELLO": "Bonjour"
 }

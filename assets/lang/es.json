@@ -30,5 +30,8 @@
     "MITO": "Es más que una plantilla para realizar tus proyectos con mayor celeridad, Mito, te ahorra mucho tiempo de organización, importación, facilitandote el que te puedas centrar en tu idea",
     "MITO_NAME": "Mito",
     "MITO_DESCRIPTION": "Debajo puedes comprobar algunos de los elementos útiles que suelen ser usados con frecuencia y que por supuesto Mito te ofrece por defecto, ademas recuerda que puedes configurarlo todo para que se ajuste a tus necesidades.",
+    "SHOW_DATE": "Mostrar fecha!",
+    "SHOW_TIME": "Mostrar hora!",
+    "DATETIME_MESSAGE": "Manejar el selector DateTime de la manera más fácil...",
     "HELLO": "Hola"
 }

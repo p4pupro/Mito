@@ -29,7 +29,7 @@
       "icon": "./assets/images/icon/ios/icon.png",
       "infoPlist": {
         "NSCameraUsageDescription": "This app will optionally use Camera to take pictures",
-        "NSFaceIDUsageDescription": "This app will optionally use Face ID or Touch ID to save time in login"
+        "NSFaceIDUsageDescription": "This app will optionally use Face ID or Finger ID to improve login experiencie"
       }
     },
     "android": {
