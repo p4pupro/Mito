@@ -8,7 +8,7 @@
 - [x] **Recoil** to Manage Global State App.
 - [x] **React native elements** library to add UI Toolkid.
 - [x] Internationalization with **i18next** and **Expo Localize**.
-- [x] Light/Dark mode with **Expo Apparence**.
+- [x] Light/Dark mode with **Expo Appearance**.
 - [x] Custom elements like: **pickers**, **tooltips** **datetimepickers**.
 - [ ] Much more to comming soon!
 
