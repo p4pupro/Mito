@@ -14,11 +14,12 @@
 
 
 ### Read the Documentation 📚
+**Comming soon!**
 
-**Just clone the project with:**
+### Just clone the project with:
 ` git clone https://github.com/p4pupro/Mito.git `
-**then write in your terminal**
+### Then write in your terminal.
 ` npm install `
-**Finally**
+### Finally.
 ` expo start `
 
