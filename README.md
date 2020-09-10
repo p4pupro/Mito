@@ -14,7 +14,8 @@
 
 
 ### Read the Documentation 📚
-**Comming soon!**
+**Much more comming soon!**
+[link to Documentation!](https://github.com/p4pupro/Mito/document.md)
 
 ### Just clone the project with:
 ` git clone https://github.com/p4pupro/Mito.git `
