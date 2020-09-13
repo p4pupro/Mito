@@ -1,13 +1,13 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet, Dimensions, Image } from "react-native";
-import FaceIdIcon from "../assets/images/icon/ios/faceid-icon.png";
+import FingerIdIcon from "../assets/images/icon/android/fingerid-icon-pro.png";
 
-const FaceId = (props: any) => {
-  const { scanFaceId } = props;
+const FingerId = (props: any) => {
+  const { scanFingerId } = props;
 
   return (
-    <TouchableOpacity style={styles.btnLocalAuth} onPress={scanFaceId}>
-      <Image style={styles.iconLocalAuth} source={FaceIdIcon} />
+    <TouchableOpacity style={styles.btnLocalAuth} onPress={scanFingerId}>
+      <Image style={styles.iconLocalAuth} source={FingerIdIcon} />
     </TouchableOpacity>
   );
 };
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FaceId;
+export default FingerId;

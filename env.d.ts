@@ -1,16 +1,9 @@
-declare module 'react-native-dotenv' {
-  
+declare module "react-native-dotenv" {
+  // COLORS
+  // Mito
 
-    // COLORS 
-    // Mito
-    
-    // Color Constant
-    export const colorApp: 'mito';
-   
+  // Color Constant
+  export const colorApp: "mito";
 }
 
-
-declare module '*.png'{
-    
-}
-
+declare module "*.png" {}
